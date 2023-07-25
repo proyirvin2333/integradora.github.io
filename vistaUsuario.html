@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasteleria Fantasy</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estiloUsuario.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Variables globales
+        var cart = [];
+        var addToCartButtons = document.querySelectorAll(".addToCartBtn"); // Actualizamos la selección de botones
+        var cartContainer = document.getElementById("cart");
+        var checkoutBtn = document.getElementById("checkoutBtn");
+
+        // Precios de los pasteles
+        var prices = [2500, 3000, 8000, 5600, 4200, 1800, 4600, 5000, 1250, 6320, 4200, 2000];
+        var currentIndex = 0;
+
+        // Función para agregar un producto al carrito
+        function addToCart(event) {
+            var product = {
+                title: event.target.parentNode.querySelector(".about__title").textContent,
+                price: prices[currentIndex],
+            };
+
+            currentIndex = (currentIndex + 1) % prices.length; // Avanzamos al siguiente precio
+            cart.push(product);
+            renderCart();
+        }
+
+        // Función para renderizar el contenido del carrito
+        function renderCart() {
+            cartContainer.innerHTML = "";
+            var totalPrice = 0;
+
+            cart.forEach(function (product) {
+                var cartItem = document.createElement("li");
+                cartItem.textContent = product.title + " - $" + product.price;
+                cartContainer.appendChild(cartItem);
+                totalPrice += product.price;
+            });
+
+            // Mostrar el precio total en el botón de checkout
+            checkoutBtn.textContent = "Checkout - Total: $" + totalPrice;
+        }
+
+        // Agrega un evento click a cada botón de "Agregar al carrito"
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener("click", addToCart);
+        });
+    });
+</script>
+
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav_logo">
+                <h2 class="nav_title">PASTELERIA FANTASY</h2>
+            </div>
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="nosotros.html" class="nav__links">Nosotros</a>
+                </li>
+                <li class="nav__items">
+                    <a href="ofertas.html" class="nav__links">Ofertas</a>
+                </li>
+                <li class="nav__items">
+                    <a href="promociones.html" class="nav__links">Promociones</a>
+                </li>
+                <li class="nav__items">
+                    <a href="contacto.html" class="nav__links">Contacto</a>
+                </li>
+                <li class="nav__items">
+                    <a href="inicarSesion.html" class="nav__links">Iniciar Sesion</a>
+
+                </li>
+
+            </ul>
+            <div class="nav__menu">
+            </div>
+        </nav>
+        <section class="hero__container container">
+            <h1 class="hero__tile">Bienvenidos a la mejor pasteleria del mundo</h1>
+            <p class="hero__paragraph">Los mejores pasteles para tu ocasion especial los encuentras aqui</p>
+            <p class="hero__paragraph"></p>
+        </section>
+    </header>
+
+    <main>
+        <section class="container about">
+            <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
+            <p class="subtitle">BODA </p>
+
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="images/boda/1.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">PASTEL DE DOS PISOS</h3>
+                    <p class="about__paragrah">Este delicioso pastel cuenta con dos pisos llenos de un sabor que te
+                        encantara. Decorado con flores tambien hechas de pastel.</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/boda/2.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">PASTEL DE CUATRO PISOS</h3>
+                    <p class="about__paragrah">Este delicioso pastel cuenta con dos pisos llenos de un sabor que te
+                        encantara. Decorado con flores tambien hechas de pastel..</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/boda/3.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">PASTEL DE CINCO PISOS</h3>
+                    <p class="about__paragrah">Este delicioso pastel cuenta con dos pisos llenos de un sabor que te
+                        encantara. Decorado con flores tambien hechas de pastel..</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>       
+            </div>
+        </section>
+        <br> <br> <br> <br> <br>
+        <section class="container about">
+            <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
+            <p class="subtitle">FIESTAS INFANTILES </p>
+
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="images/niños/1.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">INFANTIL 1</h3>
+                    <p class="about__paragrah">La base es un bizcocho versátil, endiabladamente oscuro y chocolatoso, lo
+                        que se consigue por el uso de chocolate y cacao en la masa, que se cubre con una rica cobertura
+                        de chocolate.</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/niños/2.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">INFANTIL 2</h3>
+                    <p class="about__paragrah">Pastel relleno y cubierto de crema batida.</p>
+                    <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/niños/3.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">INFANTIL 3</h3>
+                    <p class="about__paragrah">Nada más dulce para engalanar la sobremesa veraniega que este delicioso
+                        postre hecho a base de conos de helado.</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+            </div>
+        </section>
+
+        <br> <br> <br> <br> <br>
+
+        <section class="container about">
+            <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
+            <p class="subtitle">QUINCE AÑOS </p>
+
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="images/graduacion/1.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">QUINCE 1</h3>
+                    <p class="about__paragrah">La base es un bizcocho versátil, endiabladamente oscuro y chocolatoso, lo
+                        que se consigue por el uso de chocolate y cacao en la masa, que se cubre con una rica cobertura
+                        de chocolate.</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/graduacion/2.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">QUINCE 2</h3>
+                    <p class="about__paragrah">Pastel relleno y cubierto de crema batida.</p>
+                    <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/graduacion/3.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">QUINCE 3</h3>
+                    <p class="about__paragrah">Nada más dulce para engalanar la sobremesa veraniega que este delicioso
+                        postre hecho a base de conos de helado.</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+            </div>
+        </section>
+
+        <br> <br> <br> <br> <br>
+
+        <section class="container about">
+            <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
+            <p class="subtitle">GRADUACIONES </p>
+
+            <div class="about__main">
+                <article class="about__icons">
+                    <img src="images/quince/1.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">GRADUACION 1</h3>
+                    <p class="about__paragrah">La base es un bizcocho versátil, endiabladamente oscuro y chocolatoso, lo
+                        que se consigue por el uso de chocolate y cacao en la masa, que se cubre con una rica cobertura
+                        de chocolate.</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/quince/2.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">GRADUACION 2</h3>
+                    <p class="about__paragrah">Pastel relleno y cubierto de crema batida.</p>
+                    <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+                <article class="about__icons">
+                    <img src="images/quince/3.jpg" class="about__icon" alt="">
+                    <h3 class="about__title">GRADUACION 3</h3>
+                    <p class="about__paragrah">Nada más dulce para engalanar la sobremesa veraniega que este delicioso
+                        postre hecho a base de conos de helado.</p>
+                        <button class="btn addToCartBtn">Agregar al carrito</button>
+                </article>
+            </div>
+        </section>
+        <section class="container cart-container">
+            <h2 class="subtitle cart-title">Carrito de Compras</h2>
+            <ul id="cart" class="cart-list"></ul>
+            <button id="checkoutBtn" class="btn checkout-btn">---></button>
+        </section>
+
+    </main>
+    <br> <br> <br>
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">REDES SOCIALES</h2>
+
+                <ul class="nav__link nav__link--footer">
+                    <li class="nav__items">
+                        <a class="nav__links">FACEBOOK</a>
+                    </li>
+                    <li class="nav__items">
+                        <a class="nav__links">INSTAGRAM</a>
+                    </li>
+                    <li class="nav__items">
+                        <a class="nav__links">TWITTER</a>
+                    </li>
+                    <li class="nav__items">
+                        <a class="nav__links">YOUTUBE</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <section class="footer__copy container">
+            <h3 class="footer__copyright">Derechos reservados &copy; Caos Computer</h3>
+        </section>
+    </footer> 
+</body>
+
+</html>
