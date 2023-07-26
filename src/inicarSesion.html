@@ -7,40 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasteleria Fantasy</title>
     <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/estiloRegistrate.css">
+    <link rel="stylesheet" href="./css/estiloIniciar.css">
+    <!--App Main-->
+    <script type="module" src="./main.js"></script>
 </head>
 
 <body>
     <header class="hero">
-        <nav class="nav container">
-            <div class="nav_logo">
-                <h2 class="nav_title">PASTELERIA FANTASY</h2>
-            </div>
-            <ul class="nav__link nav__link--menu">
-                <li class="nav__items">
-                    <a href="nosotros.html" class="nav__links">Nosotros</a>
-                </li>
-                <li class="nav__items">
-                    <a href="ofertas.html" class="nav__links">Ofertas</a>
-                </li>
-                <li class="nav__items">
-                    <a href="promociones.html" class="nav__links">Promociones</a>
-                </li>
-                <li class="nav__items">
-                    <a href="contacto.html" class="nav__links">Contacto</a>
-                </li>
-                <li class="nav__items">
-                    <a href="inicarSesion.html" class="nav__links">Iniciar Sesion</a>
-
-                </li>
-                <img src="./images/close.svg" class="nav__close" alt="">
-            </ul>
-            <div class="nav__menu">
-                <img src="./images/menu.svg" class="nav__img" alt="">
-            </div>
-        </nav>
+        <nav class="nav container"></nav>
         <section class="hero__container container">
-            <h1 class="hero__tile">REGISTRATE</h1>
+            <h1 class="hero__tile">INICIAR SESION</h1>
+            <div class="nav_logo" style="display: flex; justify-content: center;">
+                <a href="index.html">
+                    <img src="./images/Pastelería Fantasy.png" alt="Logo" style="width: 50%;">
+                </a>
+            </div>
             <form>
                 <label accesskey="C">
                     Correo Electrónico:<br>
@@ -53,10 +34,10 @@
                         size="33" placeholder="6 a 8 caracteres">
                 </label>
             </form>
-
-            <a href="registrada.html" class="cta">REGISTRAR CUENTA</a>
+            <a href="vista_administrador.html" class="cta">INICIAR</a>
         </section>
     </header>
+
     <footer class="footer">
         <section class="footer__container container">
             <nav class="nav nav--footer">
@@ -80,12 +61,9 @@
         </section>
 
         <section class="footer__copy container">
-
-
             <h3 class="footer__copyright">Derechos reservados &copy; Caos Computer</h3>
         </section>
     </footer>
-
 </body>
 
 </html>
