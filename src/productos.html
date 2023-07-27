@@ -12,55 +12,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!--App Main-->
     <script type="module" src="./main.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Variables globales
-            var cart = [];
-            var addToCartButtons = document.querySelectorAll(".addToCartBtn"); // Actualizamos la selección de botones
-            var cartContainer = document.getElementById("cart");
-            var checkoutBtn = document.getElementById("checkoutBtn");
-
-            // Precios de los pasteles
-            var prices = [2500, 3000, 8000, 5600, 4200, 1800, 4600, 5000, 1250, 6320, 4200, 2000];
-            var currentIndex = 0;
-
-            // Función para agregar un producto al carrito
-            function addToCart(event) {
-                var product = {
-                    title: event.target.parentNode.querySelector(".about__title").textContent,
-                    price: prices[currentIndex],
-                };
-
-                currentIndex = (currentIndex + 1) % prices.length; // Avanzamos al siguiente precio
-                cart.push(product);
-                renderCart();
-            }
-
-            // Función para renderizar el contenido del carrito
-            function renderCart() {
-                cartContainer.innerHTML = "";
-                var totalPrice = 0;
-
-                cart.forEach(function (product) {
-                    var cartItem = document.createElement("li");
-                    cartItem.textContent = product.title + " - $" + product.price;
-                    cartContainer.appendChild(cartItem);
-                    totalPrice += product.price;
-                });
-
-                // Mostrar el precio total en el botón de checkout
-                checkoutBtn.textContent = "Checkout - Total: $" + totalPrice;
-            }
-
-            // Agrega un evento click a cada botón de "Agregar al carrito"
-            addToCartButtons.forEach(function (button) {
-                button.addEventListener("click", addToCart);
-            });
-        });
-    </script>
 </head>
 
 <body>
+    <!--MENU DE HAMBURGUESA-->
     <header>
         <div class="collapse bg-dark" id="navbarToggleExternalContent" data-bs-theme="dark">
             <div class="bg-dark p-4">
@@ -95,26 +50,8 @@
             </div>
         </div>
     </header>
-    <header class="hero">
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
-        <section class="hero__container container">
-            <h1 class="hero__tile">Bienvenidos a la mejor pasteleria del mundo</h1>
-            <div class="nav_logo" style="display: flex; justify-content: center;">
-                <img src="./images/Pastelería Fantasy.png" alt="Logo" style="width: 40%;">
-            </div>
-            <p class="hero__paragraph">Los mejores pasteles para tu ocasion especial los encuentras aqui</p>
-        </section>
-    </header>
 
-    <!-- Sign In Modal -->
+    <!-- MOSTRAR MENU DE INICIO DE SESIÓN -->
     <div class="modal fade" id="SignInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-light">
@@ -139,10 +76,62 @@
         </div>
     </div>
 
+    <header class="hero">
+        <!--BARRA DE NAVEGACION-->
+        <nav class="navbar navbar-dark bg-dark nav">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <button class="btn btn-outline-success">
+                        Tu selección
+                        <img src="images/carrito-de-compras.png" alt="Bootstrap" width="32" height="32">
+                    </button>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorias de pasteles
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a href="#BODA" style="text-decoration: none;"><button class="dropdown-item"
+                                        type="button">BODAS</button></a>
+                            </li>
+                            <li>
+                                <a href="#INFANTILES" style="text-decoration: none;"><button class="dropdown-item"
+                                        type="button">INFANTILES</button></a>
+                            </li>
+                            <li>
+                                <a href="#XV" style="text-decoration: none;"><button class="dropdown-item"
+                                        type="button">QUINCE AÑOS</button></a>
+                            </li>
+                            <li>
+                                <a href="#GRADUACIONES" style="text-decoration: none;"><button class="dropdown-item"
+                                        type="button">GRADUACIONES</button></a>
+                            </li>
+                        </ul>
+                    </div>
+                </button>
+            </div>
+        </nav>
+
+        <!-- LOGO E INTRODUCCIÓN AL CONTENIDO -->
+        <section class="hero__container container">
+            <h1 class="hero__tile">Bienvenidos a la mejor pasteleria del mundo</h1>
+            <div class="nav_logo" style="display: flex; justify-content: center;">
+                <img src="./images/Pastelería Fantasy.png" alt="Logo" style="width: 40%;">
+            </div>
+            <p class="hero__paragraph">Los mejores pasteles para tu ocasion especial los encuentras aqui</p>
+        </section>
+    </header>
+
+    <!-- CONTENIDO DEL SITIO -->
     <main>
         <section class="container about">
             <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
-            <p class="subtitle">BODA </p>
+            <p class="subtitle" id="BODA">BODA </p>
 
             <div class="about__main">
                 <article class="about__icons">
@@ -168,10 +157,22 @@
                 </article>
             </div>
         </section>
+
+        <div class="container p-4">
+            <div class="row">
+                <div>
+                    <ul class="list-group posts">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <br> <br> <br> <br> <br>
+
         <section class="container about">
             <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
-            <p class="subtitle">FIESTAS INFANTILES </p>
+            <p class="subtitle" id="INFANTILES">FIESTAS INFANTILES </p>
 
             <div class="about__main">
                 <article class="about__icons">
@@ -202,7 +203,7 @@
 
         <section class="container about">
             <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
-            <p class="subtitle">QUINCE AÑOS </p>
+            <p class="subtitle" id="XV">QUINCE AÑOS </p>
 
             <div class="about__main">
                 <article class="about__icons">
@@ -233,7 +234,7 @@
 
         <section class="container about">
             <h2 class="subtitle">CATEGORIA DE PASTELES</h2>
-            <p class="subtitle">GRADUACIONES </p>
+            <p class="subtitle" id="GRADUACIONES">GRADUACIONES </p>
 
             <div class="about__main">
                 <article class="about__icons">
@@ -259,14 +260,11 @@
                 </article>
             </div>
         </section>
-        <section class="container cart-container">
-            <h2 class="subtitle cart-title">Carrito de Compras</h2>
-            <ul id="cart" class="cart-list"></ul>
-            <button id="checkoutBtn" class="btn checkout-btn">---></button>
-        </section>
 
     </main>
     <br> <br> <br>
+    
+    <!-- FIN DE LA PAGINA -->
     <footer class="footer">
         <section class="footer__container container">
             <nav class="nav nav--footer">
@@ -292,6 +290,8 @@
             <h3 class="footer__copyright">Derechos reservados &copy; Caos Computer</h3>
         </section>
     </footer>
+
+    
     <!--Bootstrap Scripts-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

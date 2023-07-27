@@ -9,12 +9,12 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth
 
 // Configuración de tu app web
 const firebaseConfig = {
-    apiKey: "AIzaSyCAtaXindRcNryuD1adhR9kyk6Ig-YRuts",
-    authDomain: "integradora-575dc.firebaseapp.com",
-    projectId: "integradora-575dc",
-    storageBucket: "integradora-575dc.appspot.com",
-    messagingSenderId: "798595370650",
-    appId: "1:798595370650:web:6758b33ba68fe349941923"
+    apiKey: "AIzaSyBaIb3fy_Qiz8J6AHsI_2DqkXuPGGankXA",
+    authDomain: "integradora-88d57.firebaseapp.com",
+    projectId: "integradora-88d57",
+    storageBucket: "integradora-88d57.appspot.com",
+    messagingSenderId: "294040645287",
+    appId: "1:294040645287:web:1168367e518db0a82b3582"
 };
 
 // Inicializa Firebase
