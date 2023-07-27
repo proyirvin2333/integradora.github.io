@@ -42,13 +42,39 @@
                         </li>
                         <br>
                         <li class="nav__items">
-                            <a href="inicarSesion.html" class="nav__links">Iniciar Sesion</a>
+                            <a data-bs-toggle="modal" data-bs-target="#SignInModal" class="nav__links">Iniciar
+                                Sesion</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
+    <!-- Sign In Modal -->
+    <div class="modal fade" id="SignInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">¡Bienvenido!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signin-form">
+                        <label for="email">Email:</label>
+                        <input type="email" id="signin-email" class="form-control mb-3" placeholder="Ingresa tu correo"
+                            required>
+                        <label for="password">password:</label>
+                        <input type="password" id="signin-password" class="form-control mb-3"
+                            placeholder="Ingresa tu contraseña" required>
+                        <button class="btn btn-primary">
+                            Iniciar Sesión
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header class="hero">
         <nav class="navbar navbar-dark bg-dark">

@@ -10,10 +10,8 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/estiloRegistrate.css">
-
     <!--Main APP-->
-    <script type="module" src="./main.js"></script>
-
+    <script type="module" src="./main_administrador.js"></script>
 </head>
 
 <body>
@@ -31,17 +29,43 @@
                         </li>
                         <br>
                         <li class="nav__items">
-                            <a href="ofertas.html" class="nav__links">Registrar Usuarios</a>
+                            <a class="nav__links" data-bs-toggle="modal" data-bs-target="#SignUpModal">Registrar
+                                Usuarios</a>
                         </li>
                         <br>
                         <li class="nav__items">
-                            <a href="inicarSesion.html" class="nav__links">Cerrar Sesion</a>
+                            <a class="nav__links" id="logOut">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header bg-light">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">SignUp</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signup-form">
+                        <label for="email">Email:</label>
+                        <input type="email" id="signup-email" class="form-control mb-3" placeholder="Ingresa tu correo"
+                            required>
+                        <label for="password">password:</label>
+                        <input type="password" id="signup-password" class="form-control mb-3"
+                            placeholder="Ingresa tu contraseña" required>
+                        <button class="btn btn-primary">
+                            Register
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header class="hero">
         <nav class="navbar navbar-dark bg-dark">
@@ -63,6 +87,8 @@
     </header>
     <!--Bootstrap Scripts-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Toastify-JS Scripts-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>
