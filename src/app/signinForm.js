@@ -12,7 +12,8 @@ signInForm.addEventListener('submit', async e => {
 
     try {
         const credentials = await signInWithEmailAndPassword(auth, email, password)
-        window.location.href = "vista_administrador.html";        
+        window.location.href = "vista_administrador.html";
+        showMessage('Welcome')        
     } catch (error) {
         if (error.code === "auth/wrong-password") {
             showMessage('Wrong password', 'error')
