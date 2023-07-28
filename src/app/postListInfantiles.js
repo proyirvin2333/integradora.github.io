@@ -10,6 +10,7 @@ export const setUpInfantiles = (data) => {
                 <h3 class="about__title">${pasteles.title}</h3>
                 <p class="about__paragrah">${pasteles.content}</p>
                 <p class="about__paragrah"> Precio ${pasteles.content}</p>
+                <p class="about__paragrah"> Precio : $${pasteles.price}</p>
             </article>
             `
             html += article
