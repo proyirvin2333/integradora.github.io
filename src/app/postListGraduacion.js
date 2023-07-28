@@ -1,5 +1,5 @@
-const postList_boda = document.querySelector('.posts_boda')
-export const setUpPost = (data) => {
+const postListGraduacion = document.querySelector('.postsGraduacion')
+export const setUpGraduacion = (data) => {
     if (data.length) {
         let html = ''
         data.forEach(doc => {
@@ -13,8 +13,8 @@ export const setUpPost = (data) => {
             `
             html += article
         });
-        postList_boda.innerHTML = html
+        postListGraduacion.innerHTML = html
     } else {
-        postList_boda.innerHTML = '<h1>No haz iniciado sesión</h1>'
+        postListGraduacion.innerHTML = '<h1>No haz iniciado sesión</h1>'
     }
 }
