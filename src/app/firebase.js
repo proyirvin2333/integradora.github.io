@@ -1,7 +1,7 @@
 //FIREBASE CODE
 //Aquí se importan las funciones que necesites del SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js"
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
 // TODO: Añade más productos de SDKs Firebase de este link
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,3 +21,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
+export const generar_infantil = (title, content) => addDoc(collection(db, 'infantiles'), {title,content});
+export const generar_boda = (title, content) => addDoc(collection(db, 'boda'), {title,content});
+export const generar_Graduacion = (title, content) => addDoc(collection(db, 'Graduacion'), {title,content});
+export const generar_XV = (title, content) => addDoc(collection(db, 'XV'), {title,content});
