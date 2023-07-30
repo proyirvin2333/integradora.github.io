@@ -21,13 +21,23 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
+//FUNCIONES PARA GENERAR NUEVOS PRODUCTOS
 export const generar_infantil = (title, content) => addDoc(collection(db, 'infantiles'), {title,content});
 export const generar_boda = (title, content) => addDoc(collection(db, 'boda'), {title,content});
 export const generar_Graduacion = (title, content) => addDoc(collection(db, 'Graduacion'), {title,content});
 export const generar_XV = (title, content) => addDoc(collection(db, 'XV'), {title,content});
-export const eliminar_boda = (id) => deleteDoc(doc(db, 'boda', id))
-export const eliminar_infantil = (id) => deleteDoc(doc(db, 'infantiles', id))
-export const eliminar_XV = (id) => deleteDoc(doc(db, 'XV', id))
-export const eliminar_graduacion = (id) => deleteDoc(doc(db, 'Graduacion', id))
+//FUNCIONES PARA ELIMINAR PRODUCTOS
+export const eliminar_infantil = (id) => deleteDoc(doc(db, 'infantiles', id));
+export const eliminar_boda = (id) => deleteDoc(doc(db, 'boda', id));
+export const eliminar_graduacion = (id) => deleteDoc(doc(db, 'Graduacion', id));
+export const eliminar_XV = (id) => deleteDoc(doc(db, 'XV', id));
+//FUNCIONES PARA EDITAR LOS VALORES DE LOS PRODUCTOS
+export const editar_infantil = (id) =>  getDoc(doc(db, 'infantiles', id));
+export const editar_boda = (id) =>  getDoc(doc(db, 'boda', id));
 export const editar_XV = (id) =>  getDoc(doc(db, 'XV', id));
-export const ActualizarXV = (id, newFields) => updateDoc(doc(db, 'XV', id), newFields)
+export const editar_graduacion = (id) =>  getDoc(doc(db, 'Graduacion', id));
+//FUNCIONES PARA GUARDAR LOS CAMBIOS DE LOS PRODUCTOS
+export const ActualizarInfantiles = (id, newFields) => updateDoc(doc(db, 'infantiles', id), newFields);
+export const ActualizarBoda = (id, newFields) => updateDoc(doc(db, 'boda', id), newFields);
+export const ActualizarXV = (id, newFields) => updateDoc(doc(db, 'XV', id), newFields);
+export const ActualizarGraduacion = (id, newFields) => updateDoc(doc(db, 'Graduacion', id), newFields);

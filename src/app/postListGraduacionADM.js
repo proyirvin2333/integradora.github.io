@@ -1,5 +1,10 @@
 import { eliminar_graduacion } from "./firebase.js";
+import { editar_graduacion } from './firebase.js';
+import { ActualizarGraduacion } from "./firebase.js";
 const postListGraduacion = document.querySelector('.postsGraduacion')
+const productoForm = document.querySelector('#producto-form')
+let id = ''
+
 export const setUpGraduacion = (data) => {
     if (data.length) {
         let html = ''
@@ -13,7 +18,8 @@ export const setUpGraduacion = (data) => {
                 <p class="about__paragrah"> Precio : $${pasteles.price}</p>
                 <label>
                     <button class="btn btn-danger delete" data-id="${doc.id}">Eliminar</button>
-                    <button class="btn btn-success" data-id="${doc.id}">Actualizar</button>
+                    <button class="btn btn-success edit" data-id="${doc.id}"
+                    data-bs-toggle="modal" data-bs-target="#editar">Actualizar</button>
                 </label>
             </article>
             `
@@ -25,6 +31,28 @@ export const setUpGraduacion = (data) => {
         btnDelete.forEach(btn => {
             btn.addEventListener('click', ({ target: { dataset } }) => {
                 eliminar_graduacion(dataset.id)
+            })
+        })
+
+        const btnEdit = postListGraduacion.querySelectorAll('.edit')
+        btnEdit.forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                const doc = await editar_graduacion(e.target.dataset.id)
+                const editar = doc.data(),
+                    title = productoForm['producto-title'],
+                    content = productoForm['producto-content'];
+
+                title.value = editar.title
+                content.value = editar.content
+                id = doc.id;
+
+                productoForm.addEventListener('submit', async (e) => {
+                    e.preventDefault()
+                    ActualizarGraduacion(id, { title: title.value, content: content.value })
+                    const actualizarModal = document.querySelector('#editar')
+                    const modal = bootstrap.Modal.getInstance(actualizarModal)
+                    modal.hide()
+                })
             })
         })
     } else {

@@ -48,6 +48,7 @@ export const setUpXV = (data) => {
                 id = doc.id;
 
                 productoForm.addEventListener('submit', async (e) => {
+                    e.preventDefault()
                     ActualizarXV(id, {title: title.value, content:  content.value})
                     const actualizarModal = document.querySelector('#editar')
                     const modal = bootstrap.Modal.getInstance(actualizarModal)
