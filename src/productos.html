@@ -76,6 +76,27 @@
         </div>
     </div>
 
+    <!-- MOSTRAR CARRITO DE COMPRAS PAPU -->
+    <div class="modal fade" id="Carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">¡Bienvenido!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signin-fom">
+                        <label for="email">Email:</label>
+                        <label for="password">password:</label>
+                        <button class="btn btn-primary">
+                            Iniciar Sesión
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="hero">
         <!--BARRA DE NAVEGACION-->
         <nav class="navbar navbar-dark bg-dark nav">
@@ -84,7 +105,7 @@
                     data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                    <button class="btn btn-outline-success">
+                    <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#Carrito">
                         Tu selección
                         <img src="images/carrito-de-compras.png" alt="Bootstrap" width="32" height="32">
                     </button>

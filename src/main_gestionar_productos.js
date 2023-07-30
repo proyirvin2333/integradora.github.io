@@ -1,10 +1,10 @@
 import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
 import { loginCheck } from "./app/loginCheck.js";
-import { setUpInfantiles } from "./app/postListInfantiles.js"
-import { setUpGraduacion } from "./app/postListGraduacion.js"
-import { setUpPost } from "./app/postList.js";
-import { setUpXV } from "./app/postListXV.js"
+import { setUpInfantiles } from "./app/postListInfantilesADM.js"
+import { setUpGraduacion } from "./app/postListGraduacionADM.js"
+import { setUpPost } from "./app/postListADM.js";
+import { setUpXV } from "./app/postListXVADM.js"
 import { auth, db } from './app/firebase.js';
 import './app/loginCheck.js';
 import './app/signupForm.js';

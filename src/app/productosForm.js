@@ -5,6 +5,7 @@ import { generar_XV } from "./firebase.js"
 //import { showMessage } from "./showMessage.js"
 const productosForm = document.querySelector('#productos-form')
 
+
 productosForm.addEventListener('submit', async (e) => {
     e.preventDefault()
 
@@ -15,7 +16,6 @@ productosForm.addEventListener('submit', async (e) => {
     try {
         if (collection === 'infantiles') {
             generar_infantil(title, content)
-
         } else if (collection === 'boda') {
             generar_boda(title, content)
         } else if (collection === 'Graduacion') {
@@ -23,6 +23,7 @@ productosForm.addEventListener('submit', async (e) => {
         } else if (collection === 'XV') {
             generar_XV(title, content)
         }
+        productosForm.reset()
     } catch (error) {
         console.log(error)
         /*if (error.code === 'auth/invalid-email') {
