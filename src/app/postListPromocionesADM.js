@@ -40,15 +40,17 @@ export const setUpPromocionesADM = (data) => {
                 const doc = await editar_Promocion(e.target.dataset.id)
                 const editar = doc.data(),
                     title = promocionesForm['promocion-title'],
-                    content = promocionesForm['promocion-content'];
+                    content = promocionesForm['promocion-content'],
+                    price = promocionesForm['promocion-price'];
 
                 title.value = editar.title
                 content.value = editar.content
+                price.value = editar.price
                 id = doc.id;
 
                 promocionesForm.addEventListener('submit', async (e) => {
                     e.preventDefault()
-                    ActualizarPromocion(id, { title: title.value, content: content.value })
+                    ActualizarPromocion(id, { title: title.value, content: content.value, price: price.value})
                     const actualizarModal = document.querySelector('#editar')
                     const modal = bootstrap.Modal.getInstance(actualizarModal)
                     modal.hide()

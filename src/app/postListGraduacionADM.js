@@ -40,15 +40,17 @@ export const setUpGraduacion = (data) => {
                 const doc = await editar_graduacion(e.target.dataset.id)
                 const editar = doc.data(),
                     title = productoForm['producto-title'],
-                    content = productoForm['producto-content'];
+                    content = productoForm['producto-content'],
+                    price = productoForm['producto-price'];                    
 
                 title.value = editar.title
                 content.value = editar.content
+                price.value = editar.price
                 id = doc.id;
 
                 productoForm.addEventListener('submit', async (e) => {
                     e.preventDefault()
-                    ActualizarGraduacion(id, { title: title.value, content: content.value })
+                    ActualizarGraduacion(id, { title: title.value, content: content.value, price: price.value})
                     const actualizarModal = document.querySelector('#editar')
                     const modal = bootstrap.Modal.getInstance(actualizarModal)
                     modal.hide()
