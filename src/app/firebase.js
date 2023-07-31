@@ -22,11 +22,11 @@ export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
 //FUNCIONES PARA GENERAR NUEVOS PRODUCTOS
-export const generar_infantil = (title, content) => addDoc(collection(db, 'infantiles'), {title,content});
-export const generar_boda = (title, content) => addDoc(collection(db, 'boda'), {title,content});
-export const generar_XV = (title, content) => addDoc(collection(db, 'XV'), {title,content});
-export const generar_Graduacion = (title, content) => addDoc(collection(db, 'Graduacion'), {title,content});
-export const generar_Promocion = (title, content) => addDoc(collection(db, 'promociones'), {title,content});
+export const generar_infantil = (title, content, price) => addDoc(collection(db, 'infantiles'), {title,content, price});
+export const generar_boda = (title, content, price) => addDoc(collection(db, 'boda'), {title,content, price});
+export const generar_XV = (title, content, price) => addDoc(collection(db, 'XV'), {title,content, price});
+export const generar_Graduacion = (title, content, price) => addDoc(collection(db, 'Graduacion'), {title,content, price});
+export const generar_Promocion = (title, content, price) => addDoc(collection(db, 'promociones'), {title,content, price});
 //FUNCIONES PARA ELIMINAR PRODUCTOS
 export const eliminar_infantil = (id) => deleteDoc(doc(db, 'infantiles', id));
 export const eliminar_boda = (id) => deleteDoc(doc(db, 'boda', id));

@@ -57,6 +57,6 @@ export const setUpXV = (data) => {
             })
         })
     } else {
-        postListXV.innerHTML = '<h1>No haz iniciado sesión</h1>'
+        postListXV.innerHTML = '<h1>No existen productos o no ha iniciado sesión</h1>'
     }
 }

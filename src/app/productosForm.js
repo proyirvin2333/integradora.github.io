@@ -11,17 +11,18 @@ productosForm.addEventListener('submit', async (e) => {
 
     const collection = productosForm['productos-collection'].value,
         title = productosForm['productos-title'].value,
-        content = productosForm['productos-content'].value;
+        content = productosForm['productos-content'].value,
+        price = parseFloat(productosForm['productos-price'].value);
 
     try {
         if (collection === 'infantiles') {
-            generar_infantil(title, content)
+            generar_infantil(title, content, price)
         } else if (collection === 'boda') {
-            generar_boda(title, content)
+            generar_boda(title, content, price)
         } else if (collection === 'Graduacion') {
-            generar_Graduacion(title, content)
+            generar_Graduacion(title, content, price)
         } else if (collection === 'XV') {
-            generar_XV(title, content)
+            generar_XV(title, content, price)
         }
         productosForm.reset()
     } catch (error) {

@@ -56,6 +56,6 @@ export const setUpPost = (data) => {
             })
         })
     } else {
-        postList_boda.innerHTML = '<h1>No existen productos</h1>'
+        postList_boda.innerHTML = '<h1>No existen productos o no ha iniciado sesión</h1>'
     }
 }

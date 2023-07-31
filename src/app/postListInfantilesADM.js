@@ -57,6 +57,6 @@ export const setUpInfantiles = (data) => {
             })
         })
     } else {
-        postList_infantil.innerHTML = '<h1>No haz iniciado sesión</h1>'
+        postList_infantil.innerHTML = '<h1>No existen productos o no ha iniciado sesión</h1>'
     }
 }

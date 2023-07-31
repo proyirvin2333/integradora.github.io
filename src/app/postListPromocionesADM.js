@@ -56,6 +56,6 @@ export const setUpPromocionesADM = (data) => {
             })
         })
     } else {
-        postList_promociones.innerHTML = '<h1>No haz iniciado sesión</h1>'
+        postList_promociones.innerHTML = '<h1>No existen productos o no ha iniciado sesión</h1>'
     }
 }

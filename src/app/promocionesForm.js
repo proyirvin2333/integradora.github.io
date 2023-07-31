@@ -7,10 +7,11 @@ promocionesForm.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     const title = promocionesForm['promociones-title'].value,
-        content = promocionesForm['promociones-content'].value;
+        content = promocionesForm['promociones-content'].value,
+        price = parseFloat(promocionesForm['promociones-price'].value);
 
     try {
-        generar_Promocion(title, content)
+        generar_Promocion(title, content, price)
         promocionesForm.reset()
     } catch (error) {
         console.log(error)
