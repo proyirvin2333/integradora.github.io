@@ -5,6 +5,6 @@ import { auth, db } from './app/firebase.js';
 import './app/signinForm.js';
 
 onAuthStateChanged(auth, async () => {
-        const Promociones = await getDocs(collection(db, 'Promociones'))
+        const Promociones = await getDocs(collection(db, 'promociones'))
         setUpPromociones(Promociones.docs)
 })

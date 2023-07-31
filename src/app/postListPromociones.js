@@ -16,6 +16,6 @@ export const setUpPromociones = (data) => {
         });
         postList_promociones.innerHTML = html
     } else {
-        postList_promociones.innerHTML = '<h1>No haz iniciado sesión</h1>'
+        postList_promociones.innerHTML = '<h1>No hay promociones existentes</h1>'
     }
 }
