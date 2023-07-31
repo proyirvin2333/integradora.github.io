@@ -26,11 +26,16 @@
                         </li>
                         <br>
                         <li class="nav__items">
+                            <a class="nav__links" data-bs-toggle="modal" data-bs-target="#promocionesModal">Agregar
+                                Promociones</a>
+                        </li>
+                        <br>
+                        <li class="nav__items">
                             <a href="gestionar_productos.html" class="nav__links">Gestionar Productos</a>
                         </li>
                         <br>
                         <li class="nav__items">
-                            <a href="promociones.html" class="nav__links">Gestionar Promociones</a>
+                            <a href="gestionar_promociones.html" class="nav__links">Gestionar Promociones</a>
                         </li>
                         <br>
                         <li class="nav__items">
@@ -40,6 +45,10 @@
                         <br>
                         <li class="nav__items">
                             <a class="nav__links" id="logOut">Cerrar Sesion</a>
+                        </li>
+                        <br>
+                        <li class="nav__items">
+                            <a class="nav__links" href="vista_administrador.html">Inicio</a>
                         </li>
                     </ul>
                 </nav>
@@ -122,6 +131,31 @@
                             placeholder="Ingresa un titulo" required>
                         <label for="Descipcion">Descipcion:</label>
                         <input type="text" id="productos-content" class="form-control mb-3"
+                            placeholder="Ingresa una descripción" required>
+                        <button class="btn btn-primary">
+                            Register
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REGISTRO DE PROMOCIONES -->
+    <div class="modal fade" id="promocionesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header bg-light">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registra una nueva promoción</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="promociones-form">
+                        <label for="title">Titulo de la promoción</label>
+                        <input type="text" id="promociones-title" class="form-control mb-3"
+                            placeholder="Ingresa un titulo" required>
+                        <label for="Descipcion">Descipción:</label>
+                        <input type="text" id="promociones-content" class="form-control mb-3"
                             placeholder="Ingresa una descripción" required>
                         <button class="btn btn-primary">
                             Register
