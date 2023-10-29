@@ -6,7 +6,7 @@ const logOut = document.querySelector('#logOut')
 
 logOut.addEventListener('click', async () => {
     await signOut(auth)
-    window.location.href = "/src/index.html";
+    window.location.href = "index.html";
 
     showMessage("LogOut")
 })
