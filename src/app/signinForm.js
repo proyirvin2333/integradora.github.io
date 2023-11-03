@@ -13,14 +13,14 @@ signInForm.addEventListener('submit', async e => {
     try {
         const credentials = await signInWithEmailAndPassword(auth, email, password)
         window.location.href = "vista_administrador.html";
-        showMessage('Welcome')        
+        showMessage('Welcome')
     } catch (error) {
         if (error.code === "auth/wrong-password") {
-            showMessage('Wrong password', 'error')
+            showMessage('Correo o contraseña incorrecta, revisa de nuevo', 'error')
         } else if (error.code == "auth/user-not-found") {
-            showMessage('User not found', 'erro')
+            showMessage('El usuario no existe :(', 'erro')
         } else {
-            showMessage(error.message, 'error')
+            showMessage(error.message, 'Algo salio mal, intenta de nuevo :(')
         }
     }
 })

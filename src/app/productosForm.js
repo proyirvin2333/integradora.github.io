@@ -1,40 +1,46 @@
-import { generar_infantil } from "./firebase.js"
-import { generar_boda } from "./firebase.js"
-import { generar_Graduacion } from "./firebase.js"
-import { generar_XV } from "./firebase.js"
-//import { showMessage } from "./showMessage.js"
-const productosForm = document.querySelector('#productos-form')
+import { generar_Graduacion } from "./firebase.js";
+import { generar_infantil } from "./firebase.js";
+import { showMessage } from "./showMessage.js";
+import { generar_boda } from "./firebase.js";
+import { generar_XV } from "./firebase.js";
 
+const productosForm = document.querySelector('#productos-form')
 
 productosForm.addEventListener('submit', async (e) => {
     e.preventDefault()
 
-    const collection = productosForm['productos-collection'].value,
-        title = productosForm['productos-title'].value,
-        content = productosForm['productos-content'].value,
-        price = parseFloat(productosForm['productos-price'].value);
+    const collection = productosForm['productos-collection'].value;
+    const title = productosForm['productos-title'].value;
+    const content = productosForm['productos-content'].value;
+    const price = parseFloat(productosForm['productos-price'].value);
 
     try {
-        if (collection === 'infantiles') {
-            generar_infantil(title, content, price)
-        } else if (collection === 'boda') {
-            generar_boda(title, content, price)
-        } else if (collection === 'Graduacion') {
-            generar_Graduacion(title, content, price)
-        } else if (collection === 'XV') {
-            generar_XV(title, content, price)
+        if (collection === '') {
+            throw new Error('La colección del producto no puede estar vacía, selecciona una para continuar');
         }
-        productosForm.reset()
+        if (title.trim() === '') {
+            throw new Error('El título no puede estar vacío, completa el campo por favor');
+        }
+        if (content.trim() === '') {
+            throw new Error('La descripción no puede estar vacía, completa el campo por favor');
+        }
+        if (isNaN(price) || price <= 0) {
+            throw new Error('El precio no es válido, debe ser un número mayor que cero');
+        }
+
+        if (collection === 'infantiles') {
+            await generar_infantil(title, content, price);
+        } else if (collection === 'boda') {
+            await generar_boda(title, content, price);
+        } else if (collection === 'Graduacion') {
+            await generar_Graduacion(title, content, price);
+        } else if (collection === 'XV') {
+            await generar_XV(title, content, price);
+        }
+
+        showMessage("Producto agregado correctamente");
+        productosForm.reset();
     } catch (error) {
-        console.log(error)
-        /*if (error.code === 'auth/invalid-email') {
-            showMessage("Invalid email ", "error")
-        } else if (error.code === 'auth/email-already-in-use') {
-            showMessage('Email already in use', "error")
-        } else if (error.code === 'auth/weak-password') {
-            showMessage('Password is too weak', "error")
-        } else if (error.code) {
-            showMessage('Something went wrong', "error")
-        }*/
+        showMessage(error.message, "error");
     }
-})
+});

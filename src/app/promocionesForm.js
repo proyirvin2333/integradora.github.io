@@ -1,28 +1,28 @@
-import { generar_Promocion } from "./firebase.js"
-//import { showMessage } from "./showMessage.js"
-const promocionesForm = document.querySelector('#promociones-form')
+import { generar_Promocion } from "./firebase.js";
+import { showMessage } from "./showMessage.js";
 
+const promocionesForm = document.querySelector('#promociones-form')
 
 promocionesForm.addEventListener('submit', async (e) => {
     e.preventDefault()
 
-    const title = promocionesForm['promociones-title'].value,
-        content = promocionesForm['promociones-content'].value,
-        price = parseFloat(promocionesForm['promociones-price'].value);
+    const title = promocionesForm['promociones-title'].value;
+    const content = promocionesForm['promociones-content'].value;
+    const price = parseFloat(promocionesForm['promociones-price'].value);
 
     try {
-        generar_Promocion(title, content, price)
-        promocionesForm.reset()
+        if (title === '') {
+            throw new Error("El título no puede estar vacío, completa el campo por favor");
+        } else if (content === '') {
+            throw new Error("La descripción no puede estar vacía, completa el campo por favor");
+        } else if (price === 0) {
+            throw new Error("El precio no puede estar vacío, completa el campo por favor");
+        }
+
+        await generar_Promocion(title, content, price);
+        showMessage("Producto agregado correctamente");
+        promocionesForm.reset();
     } catch (error) {
-        console.log(error)
-        /*if (error.code === 'auth/invalid-email') {
-            showMessage("Invalid email ", "error")
-        } else if (error.code === 'auth/email-already-in-use') {
-            showMessage('Email already in use', "error")
-        } else if (error.code === 'auth/weak-password') {
-            showMessage('Password is too weak', "error")
-        } else if (error.code) {
-            showMessage('Something went wrong', "error")
-        }*/
+        showMessage(error.message, "error");
     }
-})
+});

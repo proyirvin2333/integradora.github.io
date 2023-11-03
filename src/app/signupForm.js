@@ -14,16 +14,16 @@ signupForm.addEventListener('submit', async (e) => {
         const signUpModal = document.querySelector('#SignUpModal')
         const modal = bootstrap.Modal.getInstance(signUpModal)
         modal.hide()
-        showMessage("Welcome " + userCredentials.user.email)
+        showMessage("Bienvenido" + userCredentials.user.email)
     } catch (error) {
         if (error.code === 'auth/invalid-email') {
-            showMessage("Invalid email ", "error")
+            showMessage("Correo invalido, revisa bien la información", "error")
         } else if (error.code === 'auth/email-already-in-use') {
-            showMessage('Email already in use', "error")
+            showMessage('El correo ya esta en uso', "error")
         } else if (error.code === 'auth/weak-password') {
-            showMessage('Password is too weak', "error")
+            showMessage('La contraseña es muy corta', "error")
         } else if (error.code) {
-            showMessage('Something went wrong', "error")
+            showMessage('Algo salio mal :(', "error")
         }
     }
 })
