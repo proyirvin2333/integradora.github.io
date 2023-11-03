@@ -31,7 +31,6 @@ export const setUpXV = (data) => {
         btnDelete.forEach(btn => {
             btn.addEventListener('click', ({ target: { dataset } }) => {
                 eliminar_XV(dataset.id)
-                location.reload()
             })
         })
 
@@ -49,7 +48,7 @@ export const setUpXV = (data) => {
 
                 productoForm.addEventListener('submit', async (e) => {
                     e.preventDefault()
-                    ActualizarXV(id, {title: title.value, content:  content.value})
+                    ActualizarXV(id, { title: title.value, content: content.value })
                     const actualizarModal = document.querySelector('#editar')
                     const modal = bootstrap.Modal.getInstance(actualizarModal)
                     modal.hide()
