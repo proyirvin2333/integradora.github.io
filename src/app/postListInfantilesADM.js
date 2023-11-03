@@ -1,7 +1,6 @@
 import { eliminar_infantil } from "./firebase.js";
 import { editar_infantil } from './firebase.js';
 import { ActualizarInfantiles } from "./firebase.js";
-
 const postList_infantil = document.querySelector('.posts_infantiles')
 const productoForm = document.querySelector('#producto-form')
 let id = ''
