@@ -4,15 +4,29 @@ import { showMessage } from "./showMessage.js";
 import { generar_boda } from "./firebase.js";
 import { generar_XV } from "./firebase.js";
 
-const productosForm = document.querySelector('#productos-form')
+const productosForm = document.querySelector('#productos-form');
+const productosPriceInput = productosForm.querySelector('#productos-price');
+
+productosPriceInput.addEventListener('input', formatCurrencyInput);
+
+function formatCurrencyInput() {
+    const price = parseFloat(productosPriceInput.value.replace(/[^0-9.]+/g, ''));
+    if (!isNaN(price)) {
+        productosPriceInput.value = formatCurrency(price);
+    }
+}
+
+function formatCurrency(amount) {
+    return '$' + new Intl.NumberFormat('en-US').format(amount);
+}
 
 productosForm.addEventListener('submit', async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const collection = productosForm['productos-collection'].value;
     const title = productosForm['productos-title'].value;
     const content = productosForm['productos-content'].value;
-    const price = parseFloat(productosForm['productos-price'].value);
+    const price = parseFloat(productosPriceInput.value.replace(/[^0-9.]+/g, ''));
 
     try {
         if (collection === '') {
@@ -38,9 +52,9 @@ productosForm.addEventListener('submit', async (e) => {
             await generar_XV(title, content, price);
         }
 
-        showMessage("Producto agregado correctamente");
+        showMessage('Producto agregado correctamente');
         productosForm.reset();
     } catch (error) {
-        showMessage(error.message, "error");
+        showMessage(error.message, 'error');
     }
 });

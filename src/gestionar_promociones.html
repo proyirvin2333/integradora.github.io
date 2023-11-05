@@ -6,88 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasteleria Fantasy</title>
-    <!--Bootstrap CSS-->
+    <!--Bootstrap CSS para los estilos de los componentes-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- Toastify CSS -->
+    <!-- Toastify CSS para los estilos de las notificaciones-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <!--Custom CSS-->
+    <!-- CSS personalizado para elementos HTML propios -->
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/estiloPromo.css">
-    <!--App Main-->
+    <!-- Main APP Script contiene la ejecucion correcta del sitio-->
     <script type="module" src="./main_gestionar_promociones.js"></script>
 </head>
 
 <body>
+    <!-- BARRA DE NAVEGACIÓN -->
     <header>
-        <div class="collapse bg-dark" id="navbarToggleExternalContent" data-bs-theme="dark">
-            <div class="bg-dark p-4">
-                <nav>
-                    <ul>
-                        <li class="nav__items">
-                            <a class="nav__links" data-bs-toggle="modal" data-bs-target="#productosModal">Agregar
-                                Productos</a>
-                        </li>
-                        <br>
-                        <li class="nav__items">
-                            <a class="nav__links" data-bs-toggle="modal" data-bs-target="#promocionesModal">Agregar
-                                Promociones</a>
-                        </li>
-                        <br>
-                        <li class="nav__items">
-                            <a href="gestionar_productos.html" class="nav__links">Gestionar Productos</a>
-                        </li>
-                        <br>
-                        <li class="nav__items">
-                            <a href="gestionar_promociones.html" class="nav__links">Gestionar Promociones</a>
-                        </li>
-                        <br>
-                        <li class="nav__items">
-                            <a class="nav__links" data-bs-toggle="modal" data-bs-target="#SignUpModal">Registrar
-                                Usuarios</a>
-                        </li>
-                        <br>
-                        <li class="nav__items">
-                            <a class="nav__links" id="logOut">Cerrar Sesion</a>
-                        </li>
-                        <br>
-                        <li class="nav__items">
-                            <a class="nav__links" href="vista_administrador.html">Inicio</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand text-light fs-3" href="#">Promociones disponibles</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header bg-dark">
+                        <h4 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Opciones</h4>
+                        <a class="text-light fs-3" aria-hidden="true" data-bs-dismiss="offcanvas"
+                            aria-label="Close">X</a>
+                    </div>
+                    <div class="offcanvas-body bg-dark">
+                        <div class="user-info">
+                            <i class="fas fa-user-circle text-light fs-3"></i>
+                            <span class="user-welcome text-light fs-5">Administrador</span>
+                        </div>
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" data-bs-toggle="modal"
+                                    data-bs-target="#productosModal">Agregar Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" data-bs-toggle="modal"
+                                    data-bs-target="#promocionesModal">Agregar Promociones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="gestionar_productos.html">Gestionar Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="gestionar_promociones.html">Gestionar
+                                    Promociones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" data-bs-toggle="modal"
+                                    data-bs-target="#SignUpModal">Registrar Usuarios</a>
+                            </li>
+                            <li class "nav-item">
+                                <a class="nav-link text-light" id="logOut">Cerrar Sesión</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="vista_administrador.html">Inicio</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </nav>
+    </header>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
     </header>
 
     <!-- REGISTRO DE USUARIOS -->
     <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-light">
-                <div class="modal-header bg-light">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">SignUp</h1>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de administradores</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="signup-form">
-                        <label for="email">Email:</label>
-                        <input type="email" id="signup-email" class="form-control mb-3" placeholder="Ingresa tu correo"
-                            required>
-                        <label for="password">password:</label>
-                        <input type="password" id="signup-password" class="form-control mb-3"
-                            placeholder="Ingresa tu contraseña" required>
-                        <button class="btn btn-primary">
-                            Register
-                        </button>
+                        <div class="mb-3">
+                            <label for="signup-email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="signup-email"
+                                placeholder="Ingresa tu correo (Ejemplo: usuario@example.com)">
+                            <div class="form-text">Ingresa un correo electrónico válido.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signup-password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="signup-password"
+                                placeholder="Ingresa tu contraseña (Ejemplo: Password123!)">
+                            <div class="form-text">La contraseña debe tener al menos 6 caracteres y contener al menos 1
+                                letra mayúscula, 1 número y 1 caracter especial.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
                     </form>
                 </div>
             </div>
@@ -103,49 +127,33 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <label for="productos-collection">Categoria del producto</label>
                     <form id="productos-form">
-                        <label for="title">Categoria del producto</label>
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Seleccionar
-                        </a>
-                        <ul class="dropdown-menu">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="productos-collection"
-                                    value="infantiles">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    INFANTILES
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="productos-collection" value="boda">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    BODAS
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="productos-collection"
-                                    value="Graduacion">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    GRADUACIONES
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="productos-collection" value="XV">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    QUINCE AÑOS
-                                </label>
-                            </div>
-                        </ul>
-                        <label for="title">Titulo del producto</label>
+                        <div class="btn-group" role="group" aria-label="Categoría del producto">
+                            <input type="radio" class="btn-check" id="infantiles" name="productos-collection"
+                                value="infantiles">
+                            <label class="btn btn-outline-primary" for="infantiles">Infantiles</label>
+
+                            <input type="radio" class="btn-check" id="boda" name="productos-collection" value="boda">
+                            <label class="btn btn-outline-primary" for="boda">Bodas</label>
+
+                            <input type="radio" class="btn-check" id="Graduacion" name="productos-collection"
+                                value="Graduacion">
+                            <label class="btn btn-outline-primary" for="Graduacion">Graduaciones</label>
+
+                            <input type="radio" class="btn-check" id="XV" name="productos-collection" value="XV">
+                            <label class="btn btn-outline-primary" for="XV">Quince Años</label>
+                        </div>
+                        <label for="productos-title">Título del producto</label>
                         <input type="text" id="productos-title" class="form-control mb-3"
-                            placeholder="Ingresa un titulo" required>
-                        <label for="Descipcion">Descipcion:</label>
+                            placeholder="Ingresa un título">
+                        <label for="productos-content">Descripción:</label>
                         <input type="text" id="productos-content" class="form-control mb-3"
-                            placeholder="Ingresa una descripción" required>
-                        <button class="btn btn-primary">
-                            Register
-                        </button>
+                            placeholder="Ingresa una descripción">
+                        <label for="productos-price">Precio:</label>
+                        <input type="text" id="productos-price" class="form-control mb-3"
+                            placeholder="Ingresa un precio">
+                        <button class="btn btn-primary">Registrar</button>
                     </form>
                 </div>
             </div>
@@ -164,13 +172,13 @@
                     <form id="promociones-form">
                         <label for="title">Titulo de la promoción</label>
                         <input type="text" id="promociones-title" class="form-control mb-3"
-                            placeholder="Ingresa un titulo" required>
+                            placeholder="Ingresa un titulo">
                         <label for="Descipcion">Descipción:</label>
                         <input type="text" id="promociones-content" class="form-control mb-3"
-                            placeholder="Ingresa una descripción" required>
+                            placeholder="Ingresa una descripción">
                         <label for="price">Precio:</label>
                         <input type="text" id="promociones-price" class="form-control mb-3"
-                            placeholder="Ingresa un precio" required>
+                            placeholder="Ingresa un precio">
                         <button class="btn btn-primary">
                             Register
                         </button>
@@ -192,13 +200,13 @@
                     <form id="promocion-form">
                         <label for="title">Titulo de la promoción</label>
                         <input type="text" id="promocion-title" class="form-control mb-3"
-                            placeholder="Ingresa un titulo" required>
+                            placeholder="Ingresa un titulo">
                         <label for="content">Descripción de la promoción</label>
                         <input type="text" id="promocion-content" class="form-control mb-3"
-                            placeholder="Ingresa una descripción" required>
+                            placeholder="Ingresa una descripción">
                         <label for="price">Precio de la promoción</label>
                         <input type="text" id="promocion-price" class="form-control mb-3"
-                            placeholder="Ingresa una descripción" required>
+                            placeholder="Ingresa una descripción">
                         <button class="btn btn-primary edit promociones-button">Actualizar</button>
                     </form>
                 </div>
@@ -212,11 +220,7 @@
             <br> <br>
             <h2 class="subtitle">PROMOCIONES EXISTENTES</h2>
             <div class="about__main posts_promociones">
-                <!-- 
-                    <img src="images/promociones/1.jpg" class="about__icon" alt="">
-                    <img src="images/promociones/2.jpg" class="about__icon" alt="">
-                    <img src="images/promociones/3.jpg" class="about__icon" alt="">
-                -->
+                <!-- Esta parte del código se genera automaticamente gracias al Script -->
             </div>
         </section>
     </main>
@@ -229,10 +233,12 @@
         </section>
     </footer>
 
-    <!--Bootstrap Scripts-->
+    <!-- Bootstrap Scripts para componentes resposivos-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!--Toastify-JS Scripts-->
+    <!-- Toastify-JS Scripts para notificaciones estilizadas -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Font Awesome Script para iconos -->
+    <script src="https://kit.fontawesome.com/e6894977d1.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
