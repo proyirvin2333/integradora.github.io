@@ -22,11 +22,11 @@ export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
 //FUNCIONES PARA GENERAR NUEVOS PRODUCTOS
-export const generar_infantil = (title, content, price) => addDoc(collection(db, 'infantiles'), {title,content, price});
-export const generar_boda = (title, content, price) => addDoc(collection(db, 'boda'), {title,content, price});
-export const generar_XV = (title, content, price) => addDoc(collection(db, 'XV'), {title,content, price});
-export const generar_Graduacion = (title, content, price) => addDoc(collection(db, 'Graduacion'), {title,content, price});
-export const generar_Promocion = (title, content, price) => addDoc(collection(db, 'promociones'), {title,content, price});
+export const generar_infantil = (title, content, price) => addDoc(collection(db, 'infantiles'), { title, content, price });
+export const generar_boda = (title, content, price) => addDoc(collection(db, 'boda'), { title, content, price });
+export const generar_XV = (title, content, price) => addDoc(collection(db, 'XV'), { title, content, price });
+export const generar_Graduacion = (title, content, price) => addDoc(collection(db, 'Graduacion'), { title, content, price });
+export const generar_Promocion = (title, content, price) => addDoc(collection(db, 'promociones'), { title, content, price });
 //FUNCIONES PARA ELIMINAR PRODUCTOS
 export const eliminar_infantil = (id) => deleteDoc(doc(db, 'infantiles', id));
 export const eliminar_boda = (id) => deleteDoc(doc(db, 'boda', id));
@@ -34,12 +34,11 @@ export const eliminar_graduacion = (id) => deleteDoc(doc(db, 'Graduacion', id));
 export const eliminar_XV = (id) => deleteDoc(doc(db, 'XV', id));
 export const eliminar_Promocion = (id) => deleteDoc(doc(db, 'promociones', id));
 //FUNCIONES PARA EDITAR LOS VALORES DE LOS PRODUCTOS
-export const editar_infantil = (id) =>  getDoc(doc(db, 'infantiles', id));
-export const editar_boda = (id) =>  getDoc(doc(db, 'boda', id));
-export const editar_XV = (id) =>  getDoc(doc(db, 'XV', id));
-export const editar_graduacion = (id) =>  getDoc(doc(db, 'Graduacion', id));
-export const editar_Promocion = (id) =>  getDoc(doc(db, 'promociones', id));
-
+export const editar_infantil = (id) => getDoc(doc(db, 'infantiles', id));
+export const editar_boda = (id) => getDoc(doc(db, 'boda', id));
+export const editar_XV = (id) => getDoc(doc(db, 'XV', id));
+export const editar_graduacion = (id) => getDoc(doc(db, 'Graduacion', id));
+export const editar_Promocion = (id) => getDoc(doc(db, 'promociones', id));
 //FUNCIONES PARA GUARDAR LOS CAMBIOS DE LOS PRODUCTOS
 export const ActualizarInfantiles = (id, newFields) => updateDoc(doc(db, 'infantiles', id), newFields);
 export const ActualizarBoda = (id, newFields) => updateDoc(doc(db, 'boda', id), newFields);
